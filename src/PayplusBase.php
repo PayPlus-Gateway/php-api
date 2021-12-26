@@ -15,7 +15,7 @@ abstract class PayplusBase {
     public static $devMode = false;
     protected $errors = [];
     protected $actionPerformed = false;
-
+    private $payload;
     public function __construct()
     {
         if (!self::$apiKey || !self::$secretKey) {
@@ -24,17 +24,21 @@ abstract class PayplusBase {
     }
     public function Go() {
         $this->actionPerformed = true;
-        $payload = $this->createPayload();
+        $this->payload = $this->createPayload();
         $this->validate();
         if (!empty($this->errors)) {
             return $this;
         }
-        $this->Response = $this->makeRequest($payload);
+        $this->Response = $this->makeRequest($this->payload);
         
         if ($this->Response->success == 1) {
             $this->successfulResponse($this->Response);
         }
         return $this;
+    }
+
+    public function GetPayload() {
+        return $this->payload;
     }
 
     public function GetErrors() {
