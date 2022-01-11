@@ -18,6 +18,7 @@ class TokenPay extends PaymentPageBase {
             'amount',
             'currency_code',
             'token',
+            'move_token',
         ] as $fld) {
             if (!isset($initData[$fld])) {
                 $this->errors[] = 'missing-'.$fld;
