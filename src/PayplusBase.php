@@ -17,7 +17,7 @@ abstract class PayplusBase {
     protected $actionPerformed = false;
     private $payload;
     public $details;
-    private $errorCallback = null;
+    private static $errorCallback = null;
     public function __construct()
     {
         if (!self::$apiKey || !self::$secretKey) {
@@ -35,15 +35,15 @@ abstract class PayplusBase {
         
         if ($this->Response->success == 1) {
             $this->successfulResponse($this->Response);
-        } elseif($this->errorCallback) {
-            $fn = $this->errorCallback;
+        } elseif(self::$errorCallback) {
+            $fn = self::$errorCallback;
             $fn($this->Response, $this->payload);
         }
         return $this;
     }
     
-    public function SetErrorCallback($fn) {
-        $this->errorCallback = $fn;
+    public static function SetErrorCallback($fn) {
+        self::$errorCallback = $fn;
     }
 
     public function GetPayload() {
