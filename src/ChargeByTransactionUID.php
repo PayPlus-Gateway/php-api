@@ -3,7 +3,7 @@
  * Low level API for integration with the PayPlus payment processing gateway
  * @package Payplus-API
  * @author PayPlus LTD <info@payplus.co.il> https://www.payplus.co.il
- * @since 1.0.0
+ * @since 1.0.7
  */
 namespace PayplusGateway\PayplusApi;
 
