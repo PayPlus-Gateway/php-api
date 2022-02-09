@@ -96,9 +96,14 @@ abstract class PayplusBase {
             $result->result = $response->data;
             return $result;
         }
-        if (isset($response->status) && $response->status == 'success') {
-            $result->success = 1;
-            $result->result = $response->data;
+        if (isset($response->status)) {
+            if ($response->status == 'success') {
+                $result->success = 1;
+                $result->result = $response->data;
+            } else {
+                $result->result = $response->status;
+                $this->errors[] = $response->status;
+            }
             return $result;
         }
         $result->success = 0;
