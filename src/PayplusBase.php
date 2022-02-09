@@ -19,7 +19,7 @@ abstract class PayplusBase {
     public $details;
     private static $errorCallback = null;
     public static $DEV_ADDRESS = 'https://restapidev.payplus.co.il/api/v1.0';
-    public static $PROD_ADDRESS = 'https://restapidev.payplus.co.il/api/v1.0';
+    public static $PROD_ADDRESS = 'https://restapi.payplus.co.il/api/v1.0';
     public function __construct()
     {
         if (!self::$apiKey || !self::$secretKey) {
