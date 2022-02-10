@@ -74,6 +74,7 @@ abstract class PaymentPageBase extends PayplusBase {
             'cell_phone',
             'address',
             'city',
+            'postal_code',
             'country_iso',
         ]);
         return true;
@@ -96,7 +97,6 @@ abstract class PaymentPageBase extends PayplusBase {
             'value',
             'discount_type',
             'discount_value',
-            'postal_code',
             'vat_type'
         ]);
         
