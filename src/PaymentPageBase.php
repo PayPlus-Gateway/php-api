@@ -96,6 +96,7 @@ abstract class PaymentPageBase extends PayplusBase {
             'value',
             'discount_type',
             'discount_value',
+            'postal_code',
             'vat_type'
         ]);
         
