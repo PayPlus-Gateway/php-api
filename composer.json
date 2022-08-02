@@ -8,7 +8,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "PayplusGateway\\PayplusApi\\": "src/"
+            "PayplusGateway\\PayplusApi\\": "src/",
+            "Omnipay\\Payplus\\": "src/Omnipay/"
         }
     },
     "authors": [
